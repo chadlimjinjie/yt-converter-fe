@@ -25,11 +25,19 @@ export default function YouTubeConverter({ }) {
     const [videoLink, setVideoLink] = useState("")
 
     function downloadMp3(url: string) {
-        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`)
+        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
     }
 
     function downloadMp4(url: string) {
-        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`)
+        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
     }
 
     return (
@@ -40,7 +48,7 @@ export default function YouTubeConverter({ }) {
                     <FormControl>
                         <FormLabel>Video link</FormLabel>
                         <Input onChange={(e) => { setVideoLink(e.target.value) }} />
-                        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
+                        <FormHelperText>Test YouTube video https://www.youtube.com/watch?v=IScTJbj_6kc</FormHelperText>
                     </FormControl>
                     <Stack spacing={4} direction='row' align='center'>
                         <Button colorScheme='blue' onClick={() => downloadMp3(videoLink)}>MP3</Button>
