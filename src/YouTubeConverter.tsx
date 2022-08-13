@@ -4,29 +4,49 @@ import {
     Text,
     Link,
     VStack,
+    Stack,
     Code,
     Grid,
+    Input,
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Button,
+    ButtonGroup
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 
+import axios from "axios"
+import { useState } from "react"
+
 export default function YouTubeConverter({ }) {
+
+    const [videoLink, setVideoLink] = useState("")
+
+    function downloadMp3(url: string) {
+        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`)
+    }
+
+    function downloadMp4(url: string) {
+        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`)
+    }
+
     return (
-        <Box textAlign="center" fontSize="xl">
+        <Box fontSize="xl">
             <Grid minH="100vh" p={3}>
                 <ColorModeSwitcher justifySelf="flex-end" />
                 <VStack spacing={8}>
-                    {/* <Text>
-                        Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-                    </Text>
-                    <Link
-                        color="teal.500"
-                        href="https://chakra-ui.com"
-                        fontSize="2xl"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Learn Chakra
-                    </Link> */}
+                    <FormControl>
+                        <FormLabel>Video link</FormLabel>
+                        <Input onChange={(e) => { setVideoLink(e.target.value) }} />
+                        {/* <FormHelperText>We'll never share your email.</FormHelperText> */}
+                    </FormControl>
+                    <Stack spacing={4} direction='row' align='center'>
+                        <Button colorScheme='blue' onClick={() => downloadMp3(videoLink)}>MP3</Button>
+                        <Button colorScheme='blue' onClick={() => downloadMp4(videoLink)}>MP4</Button>
+                    </Stack>
+
                 </VStack>
             </Grid>
         </Box>
