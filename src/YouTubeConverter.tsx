@@ -25,19 +25,47 @@ export default function YouTubeConverter({ }) {
     const [videoLink, setVideoLink] = useState("")
 
     async function downloadMp3(url: string) {
-        const response = await axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`, {
-            responseType: 'blob'
-        })
-        const data = window.URL.createObjectURL(new Blob([response.data]));
-        console.log(data)
+        var tempLink = document.createElement('a');
+        tempLink.style.display = 'none';
+        tempLink.href = `https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`;
+
+        // Safari thinks _blank anchor are pop ups. We only want to set _blank
+        // target if the browser does not support the HTML5 download attribute.
+        // This allows you to download files in desktop safari if pop up blocking
+        // is enabled.
+        if (typeof tempLink.download === 'undefined') {
+            tempLink.setAttribute('target', '_blank');
+        }
+
+        document.body.appendChild(tempLink);
+        tempLink.click();
+
+        // Fixes "webkit blob resource error 1"
+        setTimeout(function () {
+            document.body.removeChild(tempLink);
+        }, 200)
     }
 
     async function downloadMp4(url: string) {
-        const response = await axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`, {
-            responseType: 'blob'
-        })
-        const data = window.URL.createObjectURL(new Blob([response.data]));
-        console.log(data)
+        var tempLink = document.createElement('a');
+        tempLink.style.display = 'none';
+        tempLink.href = `https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`;
+
+        // Safari thinks _blank anchor are pop ups. We only want to set _blank
+        // target if the browser does not support the HTML5 download attribute.
+        // This allows you to download files in desktop safari if pop up blocking
+        // is enabled.
+        if (typeof tempLink.download === 'undefined') {
+            tempLink.setAttribute('target', '_blank');
+        }
+
+        document.body.appendChild(tempLink);
+        tempLink.click();
+
+        // Fixes "webkit blob resource error 1"
+        setTimeout(function () {
+            document.body.removeChild(tempLink);
+        }, 200)
     }
 
     return (
