@@ -27,7 +27,7 @@ export default function YouTubeConverter({ }) {
     function downloadMp3(url: string) {
         axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`, {
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/octet-stream"
             }
         })
     }
@@ -35,7 +35,7 @@ export default function YouTubeConverter({ }) {
     function downloadMp4(url: string) {
         axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`, {
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/octet-stream"
             }
         })
     }
