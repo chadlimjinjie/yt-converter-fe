@@ -17,7 +17,6 @@ import {
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 
-import axios from "axios"
 import { useState } from "react"
 
 export default function YouTubeConverter({ }) {
@@ -44,6 +43,7 @@ export default function YouTubeConverter({ }) {
         setTimeout(function () {
             document.body.removeChild(tempLink);
         }, 200)
+        setVideoLink("")
     }
 
     async function downloadMp4(url: string) {
@@ -66,6 +66,7 @@ export default function YouTubeConverter({ }) {
         setTimeout(function () {
             document.body.removeChild(tempLink);
         }, 200)
+        setVideoLink("")
     }
 
     return (
