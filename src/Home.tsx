@@ -6,7 +6,9 @@ import {
   Code,
   Grid,
 } from "@chakra-ui/react"
-
+import {
+  Link as RouterLink,
+} from "react-router-dom";
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import { Logo } from "./Logo"
 
@@ -17,18 +19,20 @@ export default function Home() {
         <ColorModeSwitcher justifySelf="flex-end" />
         <VStack spacing={8}>
           <Logo h="40vmin" pointerEvents="none" />
-          <Text>
+          {/* <Text>
             Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text>
+          </Text> */}
           <Link
             color="teal.500"
-            href="https://chakra-ui.com"
             fontSize="2xl"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Learn Chakra
+            <RouterLink to="yt-converter">
+              YouTube video converter
+            </RouterLink>
           </Link>
+
         </VStack>
       </Grid>
     </Box>
