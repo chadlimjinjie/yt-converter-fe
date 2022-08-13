@@ -24,20 +24,20 @@ export default function YouTubeConverter({ }) {
 
     const [videoLink, setVideoLink] = useState("")
 
-    function downloadMp3(url: string) {
-        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`, {
-            headers: {
-                "Content-Type": "application/octet-stream"
-            }
+    async function downloadMp3(url: string) {
+        const response = await axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`, {
+            responseType: 'blob'
         })
+        const data = window.URL.createObjectURL(new Blob([response.data]));
+        console.log(data)
     }
 
-    function downloadMp4(url: string) {
-        axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`, {
-            headers: {
-                "Content-Type": "application/octet-stream"
-            }
+    async function downloadMp4(url: string) {
+        const response = await axios.get(`https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`, {
+            responseType: 'blob'
         })
+        const data = window.URL.createObjectURL(new Blob([response.data]));
+        console.log(data)
     }
 
     return (
