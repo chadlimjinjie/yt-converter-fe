@@ -76,7 +76,7 @@ export default function YouTubeConverter({ }) {
                 <VStack spacing={8}>
                     <FormControl>
                         <FormLabel>Video link</FormLabel>
-                        <Input onChange={(e) => { setVideoLink(e.target.value) }} />
+                        <Input value={videoLink} onChange={(e) => { setVideoLink(e.target.value) }} />
                         <FormHelperText>Test YouTube video https://www.youtube.com/watch?v=IScTJbj_6kc</FormHelperText>
                     </FormControl>
                     <Stack spacing={4} direction='row' align='center'>
