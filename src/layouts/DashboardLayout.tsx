@@ -16,11 +16,11 @@ export const DashboardLayout = ({ }): JSX.Element => {
     return (
         <Grid
             className="dashboard-layout"
-            templateAreas={`"header header"
-                  "main main"
-                  "footer footer"`}
+            templateAreas={`"header"
+                  "main"
+                  "footer"`}
             gridTemplateRows={'50px 1fr 100px'}
-            gridTemplateColumns={'100vh 1fr'}
+            gridTemplateColumns={'1fr'}
             h='100vh'
             gap='1'
             // color='blackAlpha.700'

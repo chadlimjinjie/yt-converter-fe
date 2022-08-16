@@ -10,7 +10,7 @@ import { Logo } from "../Logo"
 
 export default function Home() {
   return (
-    <Box height="100%" textAlign="center" fontSize="xl">
+    <Box textAlign="center" fontSize="xl">
         <VStack spacing={8}>
           <Logo h="40vmin" pointerEvents="none" />
           <Link
