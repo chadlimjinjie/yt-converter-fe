@@ -20,6 +20,7 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<DashboardLayout />}>
             <Route index element={<Home />} />
+            <Route path="test/test" element={<Home />} />
           </Route>
           
           <Route element={<DashboardLayout />}>

@@ -8,24 +8,45 @@ import {
     Link as RouterLink,
 } from "react-router-dom";
 
+interface pathInfo {
+    name: string,
+    path: string,
+}
+
+type pathname = {
+    [key: string]: string
+}
+
+const PATHNAME_MAP: pathname = {
+    "/": "Home",
+    "dashboard": "Dashboard",
+    "yt-converter": "YouTube Converter",
+}
+
 export const DashboardLayout = ({ }): JSX.Element => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const placement = "left"
     const location = useLocation()
     const locationPathname = location.pathname
-    const [path, setPath] = useState<Array<string>>([])
+    const [path, setPath] = useState<Array<pathInfo>>([])
 
     const pathnameChange = useMemo(() => {
         setPath([])
     }, [locationPathname])
 
     useEffect(() => {
-        locationPathname.split("/").map((item, index) => {
+        var pathArray = locationPathname.split("/");
+        var paths: Array<pathInfo> = [];
+        pathArray.forEach((item, index) => {
             if (item !== "") {
-                setPath([...path, item])
+                paths.push({
+                    name: item,
+                    path: `${pathArray.slice(0, index + 1).join("/")}`
+                })
             }
         })
+        setPath(paths)
     }, [locationPathname])
 
     return (
@@ -58,8 +79,8 @@ export const DashboardLayout = ({ }): JSX.Element => {
                             path.map((item, index) => {
                                 return (
                                     <BreadcrumbItem key={index}>
-                                        <BreadcrumbLink as={RouterLink} to={`/${item}`}>
-                                            {item}
+                                        <BreadcrumbLink as={RouterLink} to={item.path}>
+                                            {PATHNAME_MAP[item.name] || item.name}
                                         </BreadcrumbLink>
                                     </BreadcrumbItem>
                                 )
