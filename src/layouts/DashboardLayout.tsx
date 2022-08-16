@@ -1,6 +1,6 @@
-import { Box, Text, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Spacer, useDisclosure, VStack, IconButton, Grid, GridItem } from "@chakra-ui/react"
-import { useState } from "react"
-import { Outlet } from "react-router-dom"
+import { Box, Text, Button, Drawer, DrawerBody, DrawerContent, DrawerHeader, DrawerOverlay, Flex, Spacer, useDisclosure, VStack, IconButton, Grid, GridItem, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react"
+import { useEffect, useMemo, useState } from "react"
+import { Outlet, useLocation } from "react-router-dom"
 import { ColorModeSwitcher } from "../shared/components/ColorModeSwitcher"
 import { HamburgerIcon } from '@chakra-ui/icons'
 
@@ -12,6 +12,21 @@ export const DashboardLayout = ({ }): JSX.Element => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const placement = "left"
+    const location = useLocation()
+    const locationPathname = location.pathname
+    const [path, setPath] = useState<Array<string>>([])
+
+    const pathnameChange = useMemo(() => {
+        setPath([])
+    }, [locationPathname])
+
+    useEffect(() => {
+        locationPathname.split("/").map((item, index) => {
+            if (item !== "") {
+                setPath([...path, item])
+            }
+        })
+    }, [locationPathname])
 
     return (
         <Grid
@@ -38,6 +53,20 @@ export const DashboardLayout = ({ }): JSX.Element => {
                         icon={<HamburgerIcon />}
                         aria-label=""
                     />
+                    <Breadcrumb pl={2} m={"auto"}>
+                        {
+                            path.map((item, index) => {
+                                return (
+                                    <BreadcrumbItem key={index}>
+                                        <BreadcrumbLink as={RouterLink} to={`/${item}`}>
+                                            {item}
+                                        </BreadcrumbLink>
+                                    </BreadcrumbItem>
+                                )
+                            })
+                        }
+                    </Breadcrumb>
+
                     <Spacer />
                     <ColorModeSwitcher />
                 </Flex>
