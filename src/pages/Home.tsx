@@ -1,27 +1,18 @@
 import {
   Box,
-  Text,
   Link,
   VStack,
-  Code,
-  Grid,
 } from "@chakra-ui/react"
 import {
   Link as RouterLink,
 } from "react-router-dom";
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
-import { Logo } from "./Logo"
+import { Logo } from "../Logo"
 
 export default function Home() {
   return (
-    <Box textAlign="center" fontSize="xl">
-      <Grid minH="100vh" p={3}>
-        <ColorModeSwitcher justifySelf="flex-end" />
+    <Box height="100%" textAlign="center" fontSize="xl">
         <VStack spacing={8}>
           <Logo h="40vmin" pointerEvents="none" />
-          {/* <Text>
-            Edit <Code fontSize="xl">src/App.tsx</Code> and save to reload.
-          </Text> */}
           <Link
             color="teal.500"
             fontSize="2xl"
@@ -32,9 +23,7 @@ export default function Home() {
               YouTube video converter
             </RouterLink>
           </Link>
-
         </VStack>
-      </Grid>
     </Box>
   );
 }

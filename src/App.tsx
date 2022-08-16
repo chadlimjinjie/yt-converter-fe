@@ -8,17 +8,20 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Dashboard } from "./Dashboard";
-import Home from "./Home";
+import { Dashboard } from "./pages/Dashboard";
+import Home from "./pages/Home";
 import { DashboardLayout } from "./layouts/DashboardLayout";
-import { YouTubeConverter } from "./YouTubeConverter";
+import { YouTubeConverter } from "./pages/YouTubeConverter";
 
 export const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<DashboardLayout />}>
+            <Route index element={<Home />} />
+          </Route>
+          
           <Route element={<DashboardLayout />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="yt-converter" element={<YouTubeConverter />} />
