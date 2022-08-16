@@ -8,7 +8,9 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import { Dashboard } from "./Dashboard";
 import Home from "./Home";
+import { DashboardLayout } from "./layouts/DashboardLayout";
 import { YouTubeConverter } from "./YouTubeConverter";
 
 export const App = () => {
@@ -17,7 +19,10 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="yt-converter" element={<YouTubeConverter />} />
+          <Route element={<DashboardLayout />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="yt-converter" element={<YouTubeConverter />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

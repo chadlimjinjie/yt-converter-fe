@@ -10,7 +10,6 @@ import {
     FormHelperText,
     Button,
 } from "@chakra-ui/react"
-import { ColorModeSwitcher } from "./ColorModeSwitcher"
 
 export const YouTubeConverter = (): JSX.Element => {
 
@@ -64,21 +63,17 @@ export const YouTubeConverter = (): JSX.Element => {
 
     return (
         <Box fontSize="xl">
-            <Grid minH="100vh" p={3}>
-                <ColorModeSwitcher justifySelf="flex-end" />
-                <VStack spacing={8}>
-                    <FormControl>
-                        <FormLabel>Video link</FormLabel>
-                        <Input value={videoLink} onChange={(e) => { setVideoLink(e.target.value) }} />
-                        <FormHelperText>Test YouTube video https://www.youtube.com/watch?v=IScTJbj_6kc</FormHelperText>
-                    </FormControl>
-                    <Stack spacing={4} direction='row' align='center'>
-                        <Button colorScheme='blue' onClick={() => downloadMp3(videoLink)}>MP3</Button>
-                        <Button colorScheme='blue' onClick={() => downloadMp4(videoLink)}>MP4</Button>
-                    </Stack>
-
-                </VStack>
-            </Grid>
+            <VStack spacing={8}>
+                <FormControl>
+                    <FormLabel>Video link</FormLabel>
+                    <Input value={videoLink} onChange={(e) => { setVideoLink(e.target.value) }} />
+                    <FormHelperText>Test YouTube video https://www.youtube.com/watch?v=IScTJbj_6kc</FormHelperText>
+                </FormControl>
+                <Stack spacing={4} direction='row' align='center'>
+                    <Button colorScheme='blue' onClick={() => downloadMp3(videoLink)}>MP3</Button>
+                    <Button colorScheme='blue' onClick={() => downloadMp4(videoLink)}>MP4</Button>
+                </Stack>
+            </VStack>
         </Box>
     )
 }
