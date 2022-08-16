@@ -9,9 +9,9 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "./Home";
-import YouTubeConverter from "./YouTubeConverter";
+import { YouTubeConverter } from "./YouTubeConverter";
 
-export default function App({ }) {
+export const App = () => {
   return (
     <ChakraProvider theme={theme}>
       <BrowserRouter>

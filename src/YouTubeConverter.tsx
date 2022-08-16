@@ -1,39 +1,32 @@
-
+import { useState } from "react"
 import {
     Box,
-    Text,
-    Link,
     VStack,
     Stack,
-    Code,
     Grid,
     Input,
     FormControl,
     FormLabel,
-    FormErrorMessage,
     FormHelperText,
     Button,
-    ButtonGroup
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 
-import { useState } from "react"
+export const YouTubeConverter = (): JSX.Element => {
 
-export default function YouTubeConverter({ }) {
-
-    const [videoLink, setVideoLink] = useState("")
+    const [videoLink, setVideoLink] = useState<string>("")
 
     async function downloadMp3(url: string) {
-        var tempLink = document.createElement('a');
-        tempLink.style.display = 'none';
-        tempLink.href = `https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`;
+        var tempLink: HTMLAnchorElement = document.createElement('a')
+        tempLink.style.display = "none"
+        tempLink.href = `https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp3?link=${url}`
 
         // Safari thinks _blank anchor are pop ups. We only want to set _blank
         // target if the browser does not support the HTML5 download attribute.
         // This allows you to download files in desktop safari if pop up blocking
         // is enabled.
         if (typeof tempLink.download === 'undefined') {
-            tempLink.setAttribute('target', '_blank');
+            tempLink.setAttribute('target', '_blank')
         }
 
         document.body.appendChild(tempLink);
@@ -41,30 +34,30 @@ export default function YouTubeConverter({ }) {
 
         // Fixes "webkit blob resource error 1"
         setTimeout(function () {
-            document.body.removeChild(tempLink);
+            document.body.removeChild(tempLink)
         }, 200)
         setVideoLink("")
     }
 
     async function downloadMp4(url: string) {
-        var tempLink = document.createElement('a');
-        tempLink.style.display = 'none';
-        tempLink.href = `https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`;
+        var tempLink: HTMLAnchorElement = document.createElement('a');
+        tempLink.style.display = "none";
+        tempLink.href = `https://chad-rest-endpoint.herokuapp.com/api/v1/youtube/mp4?link=${url}`
 
         // Safari thinks _blank anchor are pop ups. We only want to set _blank
         // target if the browser does not support the HTML5 download attribute.
         // This allows you to download files in desktop safari if pop up blocking
         // is enabled.
         if (typeof tempLink.download === 'undefined') {
-            tempLink.setAttribute('target', '_blank');
+            tempLink.setAttribute('target', '_blank')
         }
 
         document.body.appendChild(tempLink);
-        tempLink.click();
+        tempLink.click()
 
         // Fixes "webkit blob resource error 1"
         setTimeout(function () {
-            document.body.removeChild(tempLink);
+            document.body.removeChild(tempLink)
         }, 200)
         setVideoLink("")
     }
