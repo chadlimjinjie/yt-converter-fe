@@ -18,7 +18,7 @@ type pathname = {
 }
 
 const PATHNAME_MAP: pathname = {
-    "/": "Home",
+    "": "Home",
     "dashboard": "Dashboard",
     "yt-converter": "YouTube Converter",
 }
@@ -45,6 +45,7 @@ export const DashboardLayout = ({ }): JSX.Element => {
                     path: `${pathArray.slice(0, index + 1).join("/")}`
                 })
             }
+            document.title = PATHNAME_MAP[item] || item
         })
         setPath(paths)
     }, [locationPathname])
