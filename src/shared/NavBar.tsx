@@ -112,11 +112,11 @@ export const NavBar = () => {
                                 </Button>
                             </RouterLink> */}
 
-                            <RouterLink to="yt-converter">
+                            {/* <RouterLink to="yt-converter">
                                 <Button w={"100%"} colorScheme='teal' variant='ghost'>
-                                    YouTube video converter
+                                    YouTube Video Converter
                                 </Button>
-                            </RouterLink>
+                            </RouterLink> */}
 
                         </VStack>
                     </DrawerBody>
