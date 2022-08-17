@@ -1,21 +1,39 @@
-import { Box, Center, Flex } from "@chakra-ui/react"
+import { Box, Center, Container, Flex, Wrap, WrapItem } from "@chakra-ui/react"
 import { AppCard } from "../shared/components/AppCard"
 
 export const Dashboard = ({ }): JSX.Element => {
     return (
-        <div>
-            {/* <h1>Dashboard works</h1> */}
-            <Flex>
-                <Center flex='1'>
-                    <AppCard title="Camera" />
+        <Wrap spacing='20px' justify='center'>
+            <WrapItem>
+                <Center>
+                    <AppCard title="YouTube Video Converter" to="/yt-converter" />
                 </Center>
-                <Center flex='1'>
-                    <AppCard title="Camera" />
+            </WrapItem>
+            <WrapItem>
+                <Center>
+                    <AppCard title="App 2" />
                 </Center>
-                <Center flex='1'>
-                    <AppCard title="Camera" />
+            </WrapItem>
+            <WrapItem>
+                <Center>
+                    <AppCard title="App 3" />
                 </Center>
-            </Flex>
-        </div>
+            </WrapItem>
+            <WrapItem>
+                <Center>
+                    <AppCard title="App 4" />
+                </Center>
+            </WrapItem>
+            <WrapItem>
+                <Center>
+                    <AppCard title="App 5" />
+                </Center>
+            </WrapItem>
+            <WrapItem>
+                <Center>
+                    <AppCard title="App 6" />
+                </Center>
+            </WrapItem>
+        </Wrap>
     )
 }
