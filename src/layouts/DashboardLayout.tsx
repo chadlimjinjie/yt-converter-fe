@@ -23,7 +23,7 @@ const PATHNAME_MAP: pathname = {
     "yt-converter": "YouTube Converter",
 }
 
-export const DashboardLayout = ({ }): JSX.Element => {
+export const DashboardLayout = ({ }) => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const placement = "left"
@@ -56,7 +56,7 @@ export const DashboardLayout = ({ }): JSX.Element => {
             templateAreas={`"header"
                   "main"
                   "footer"`}
-            gridTemplateRows={'50px 1fr 100px'}
+            gridTemplateRows={'50px 1fr'}
             gridTemplateColumns={'1fr'}
             h='100vh'
             gap='1'
@@ -96,8 +96,12 @@ export const DashboardLayout = ({ }): JSX.Element => {
             <GridItem area={'main'} p={2}>
                 <Outlet />
             </GridItem>
-            <GridItem area={'footer'}>
-                Footer
+            <GridItem area={'footer'} p={2}>
+
+                <div className="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="chadlimjinjie" data-version="v1">
+                    {/* <a className="badge-base__link LI-simple-link" href="https://sg.linkedin.com/in/chadlimjinjie?trk=profile-badge">Chad Lim</a> */}
+                </div>
+
             </GridItem>
             <Drawer placement={placement} onClose={onClose} isOpen={isOpen}>
                 <DrawerOverlay />
