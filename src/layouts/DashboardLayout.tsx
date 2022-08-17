@@ -2,14 +2,17 @@ import { Grid, GridItem } from "@chakra-ui/react"
 import { Outlet } from "react-router-dom"
 import { NavBar } from "../shared/NavBar"
 
-export const DefaultLayout = ({ }) => {
-
+export const DashboardLayout = ({ }) => {
     return (
+        /**
+         * implement grid system
+         */
+
         <Grid
             className="default-layout"
             templateAreas={`"header"
-                  "main"
-                  "footer"`}
+               "main"
+               "footer"`}
             gridTemplateRows={'50px 1fr'}
             gridTemplateColumns={'1fr'}
             h='100vh'
