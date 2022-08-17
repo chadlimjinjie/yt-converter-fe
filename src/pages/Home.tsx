@@ -20,7 +20,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <RouterLink to="yt-converter">
-              YouTube video converter
+              YouTube Video Converter
             </RouterLink>
           </Link>
         </VStack>
