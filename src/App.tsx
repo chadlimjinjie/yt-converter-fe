@@ -20,12 +20,9 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<DashboardLayout />}>
             <Route index element={<Home />} />
-            <Route path="test/test" element={<Home />} />
-          </Route>
-          
-          <Route element={<DashboardLayout />}>
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="yt-converter" element={<YouTubeConverter />} />
+            <Route path="test/test" element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>
