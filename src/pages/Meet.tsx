@@ -2,6 +2,7 @@ import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { MediaConnection, Peer } from "peerjs";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 let navigator: any;
 navigator = window.navigator;
@@ -9,10 +10,10 @@ navigator = window.navigator;
 export const Meet = () => {
 
     let { meetingId } = useParams();
-    const [myPeerId, setMyPeerId] = useState<string>("");
+    const [myPeerId, setMyPeerId] = useState<string>(uuidv4());
     const [remotePeerId, setRemotePeerId] = useState<string>("");
 
-    const peer = new Peer({
+    const peer = new Peer(meetingId ? "" : myPeerId, {
         debug: 3,
         config: {
             iceServers: [
