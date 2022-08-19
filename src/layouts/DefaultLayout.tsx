@@ -2,7 +2,7 @@ import { Grid, GridItem } from "@chakra-ui/react"
 import { Outlet } from "react-router-dom"
 import { NavBar } from "../shared/NavBar"
 
-export const DefaultLayout = ({ }) => {
+export const DefaultLayout = () => {
 
     return (
         <Grid
