@@ -1,6 +1,6 @@
 import { Box, Button, FormControl, FormLabel, Input } from "@chakra-ui/react"
 import { Peer } from "peerjs";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 
 let navigator: any;
@@ -26,18 +26,18 @@ export const Meet = () => {
     });
     var mediaCall: any;
 
-    useEffect(() => {
-        
-        if (meetingId) {
-            setRemotePeerId(meetingId);
-        }
-
+    const peerChange = useMemo(() => {
         peer.on('open', function () {
             console.log('My PeerJS ID is:', peer.id);
             enableCallAnswer();
         });
+    }, [peer]);
 
-    }, [peer.id])
+    useEffect(() => {
+        if (meetingId) {
+            setRemotePeerId(meetingId);
+        }
+    }, [meetingId])
 
     async function call() {
         try {
