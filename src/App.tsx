@@ -15,6 +15,8 @@ import { YouTubeConverter } from "./pages/YouTubeConverter";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { DashboardLayout } from "./layouts/DashboardLayout";
+import { Meet } from "./pages/Meet";
+import "./index.css";
 
 export const App = () => {
   return (
@@ -31,6 +33,8 @@ export const App = () => {
           </Route>
           <Route element={<DashboardLayout />}>
             <Route path="dashboard" element={<Dashboard />} />
+            <Route path="meet" element={<Meet />} />
+            <Route path="meet/:meetingId" element={<Meet />} />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -106,6 +106,18 @@ export const NavBar = () => {
                                 </Button>
                             </RouterLink>
 
+                            <RouterLink to="mrt-crowd">
+                                <Button w={"100%"} colorScheme='teal' variant='ghost'>
+                                    MRT Crowd Level
+                                </Button>
+                            </RouterLink>
+
+                            <RouterLink to="meet">
+                                <Button w={"100%"} colorScheme='teal' variant='ghost'>
+                                    Meet
+                                </Button>
+                            </RouterLink>
+
                             {/* <RouterLink to="dashboard">
                                 <Button w={"100%"} colorScheme='teal' variant='ghost'>
                                     Dashboard
