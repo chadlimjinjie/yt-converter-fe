@@ -1,4 +1,4 @@
-import { Box, Center, Container, Flex, Wrap, WrapItem } from "@chakra-ui/react"
+import { Center, Wrap, WrapItem } from "@chakra-ui/react"
 import { AppCard } from "../shared/components/AppCard"
 
 export const Dashboard = ({ }): JSX.Element => {
@@ -11,7 +11,7 @@ export const Dashboard = ({ }): JSX.Element => {
             </WrapItem>
             <WrapItem>
                 <Center>
-                    <AppCard title="App 2" />
+                    <AppCard title="Meet" to="/meet" />
                 </Center>
             </WrapItem>
             <WrapItem>

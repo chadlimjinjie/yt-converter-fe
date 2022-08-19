@@ -2,12 +2,8 @@ import { Grid, GridItem } from "@chakra-ui/react"
 import { Outlet } from "react-router-dom"
 import { NavBar } from "../shared/NavBar"
 
-export const DashboardLayout = ({ }) => {
+export const DashboardLayout = () => {
     return (
-        /**
-         * implement grid system
-         */
-
         <Grid
             className="default-layout"
             templateAreas={`"header"
@@ -27,7 +23,6 @@ export const DashboardLayout = ({ }) => {
             </GridItem>
             <GridItem area={'footer'} p={2}>
             </GridItem>
-
         </Grid>
     )
 }

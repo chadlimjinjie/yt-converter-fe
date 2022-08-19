@@ -26,18 +26,22 @@ export const Meet = () => {
     });
     var mediaCall: any;
 
-    const peerChange = useMemo(() => {
-        peer.on('open', function () {
-            console.log('My PeerJS ID is:', peer.id);
-            enableCallAnswer();
-        });
-    }, [peer]);
+    // const peerChange = useMemo(() => {
+    //     peer.on('open', function () {
+    //         console.log('My PeerJS ID is:', peer.id);
+    //         enableCallAnswer();
+    //     });
+    // }, [peer]);
 
     useEffect(() => {
         if (meetingId) {
             setRemotePeerId(meetingId);
         }
-    }, [meetingId])
+        peer.on('open', function () {
+            console.log('My PeerJS ID is:', peer.id);
+            enableCallAnswer();
+        });
+    }, [meetingId, peer])
 
     async function call() {
         try {
