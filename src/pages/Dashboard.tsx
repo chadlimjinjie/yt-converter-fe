@@ -1,7 +1,7 @@
 import { Center, Wrap, WrapItem } from "@chakra-ui/react"
 import { AppCard } from "../shared/components/AppCard"
 
-export const Dashboard = ({ }): JSX.Element => {
+export const Dashboard = (): JSX.Element => {
     return (
         <Wrap spacing='20px' justify='center'>
             <WrapItem>
