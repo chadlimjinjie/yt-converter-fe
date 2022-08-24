@@ -17,6 +17,7 @@ import { Register } from "./pages/Register";
 import { DashboardLayout } from "./layouts/DashboardLayout";
 import { Meet } from "./pages/Meet";
 import "./index.css";
+import { MrtCrowdLevel } from "./pages/MrtCrowdLevel";
 
 export const App = () => {
   return (
@@ -24,9 +25,7 @@ export const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
-            <Route index element={<Home />} />
-            {/* <Route path="dashboard" element={<Dashboard />} /> */}
-            <Route path="yt-converter" element={<YouTubeConverter />} />
+            <Route index element={<Home />} />            
             <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="test/test" element={<Home />} />
@@ -35,6 +34,8 @@ export const App = () => {
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="meet" element={<Meet />} />
             <Route path="meet/:meetingId" element={<Meet />} />
+            <Route path="yt-converter" element={<YouTubeConverter />} />
+            <Route path="mrt-crowd" element={<MrtCrowdLevel />} />
           </Route>
         </Routes>
       </BrowserRouter>
