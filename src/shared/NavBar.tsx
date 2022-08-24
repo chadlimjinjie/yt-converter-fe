@@ -106,23 +106,23 @@ export const NavBar = () => {
                                 </Button>
                             </RouterLink>
 
-                            <RouterLink to="mrt-crowd">
+                            {/* <RouterLink to="mrt-crowd">
                                 <Button w={"100%"} colorScheme='teal' variant='ghost'>
                                     MRT Crowd Level
                                 </Button>
-                            </RouterLink>
+                            </RouterLink> */}
 
-                            <RouterLink to="meet">
+                            {/* <RouterLink to="meet">
                                 <Button w={"100%"} colorScheme='teal' variant='ghost'>
                                     Meet
                                 </Button>
-                            </RouterLink>
+                            </RouterLink> */}
 
-                            {/* <RouterLink to="dashboard">
+                            <RouterLink to="dashboard">
                                 <Button w={"100%"} colorScheme='teal' variant='ghost'>
                                     Dashboard
                                 </Button>
-                            </RouterLink> */}
+                            </RouterLink>
 
                             {/* <RouterLink to="yt-converter">
                                 <Button w={"100%"} colorScheme='teal' variant='ghost'>
